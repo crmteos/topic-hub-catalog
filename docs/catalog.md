@@ -34,7 +34,7 @@ py -3 tools/catalog_worker.py --validate --dry-run --records tools/records
 
 Обов'язкові поля: `endpoint`, `method`, `format`, `timeout_s`, `auth_profile`, `params`, `parser`, `rate_limit_rps`, `probe_url`, `check_interval_days`. Дозволені `auth_profile`: `keyless`, `polite-mailto`, `api-key-env`. `key_required: true` заборонений.
 
-Шість попереджень `legal_review: pending` — очікуваний стан, не помилка. Помилок має бути 0.
+Після sign-off оператора 22 листопада 2026 шість active-записів мають `legal_review: verified` і `tos_verified_at: 2026-11-22`, тому попереджень має бути 0. Три planned-записи лишаються `pending` до активації. Помилок має бути 0.
 
 ## Синхронізація широкої й вузької баз
 

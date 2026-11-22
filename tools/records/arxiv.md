@@ -23,11 +23,11 @@ rate_limit_rps: 0.33
 probe_url: "https://export.arxiv.org/api/query?search_query=all:test&start=0&max_results=1"
 license: "описові метадані CC0 1.0; e-prints — copyright авторів/видавців"
 license_source: "https://info.arxiv.org/help/api/tou.html"
-tos_verified_at: ""
+tos_verified_at: 2026-11-22
 robots_allowed: restricted
 attribution_required: false
 attribution_text: "рекомендоване підтвердження: Thank you to arXiv for use of its open access interoperability."
-legal_review: pending
+legal_review: verified
 check_interval_days: 1
 last_checked: 2026-11-22
 last_error: ""

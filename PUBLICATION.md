@@ -11,7 +11,7 @@
 | Гілка | `main` | Стандарт для Pages |
 | Корінь репо | вміст цієї директорії | Vault публікувати заборонено |
 | Контакт | GitHub Issues | Замість емейлу: контакт є, адреса не потрапляє в логи й не збирається спам-ботами |
-| Юридичний статус | research complete, **human confirmation pending** | `legal_review: pending`, `tos_verified_at: ""` — не змінювати |
+| Юридичний статус | research complete, **accepted 2026-11-22** | 6 active: `legal_review: verified`, `tos_verified_at: 2026-11-22`; 3 planned: `pending` |
 
 ## Що входить
 

@@ -23,11 +23,11 @@ rate_limit_rps: 1
 probe_url: "https://uk.wikipedia.org/w/api.php?action=query&list=search&srsearch=test&format=json&srlimit=1&srprop=snippet"
 license: "CC BY-SA 4.0 та GFDL (реюзе — будь-яка одна з ліцензій)"
 license_source: "https://foundation.wikimedia.org/wiki/Policy:Terms_of_Use#7._Licensing_of_Content"
-tos_verified_at: ""
+tos_verified_at: 2026-11-22
 robots_allowed: restricted
 attribution_required: true
 attribution_text: "гіперпосилання/URL до сторінки, стабільна копія або список авторів"
-legal_review: pending
+legal_review: verified
 check_interval_days: 1
 last_checked: 2026-11-22
 last_error: ""

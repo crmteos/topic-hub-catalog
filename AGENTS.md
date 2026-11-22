@@ -34,7 +34,7 @@
    ```powershell
    Get-ChildItem -Recurse -File -Exclude AGENTS.md,PROMPT.md,PUBLICATION.md | Select-String -Pattern 'C:\\Projects|C:\\Users'
    ```
-5. Перевір локальну валідацію (0 помилок; 6 попереджень `legal_review: pending` — це очікувано):
+5. Перевір локальну валідацію (0 помилок; 0 попереджень — шість active-записів мають `legal_review: verified` і `tos_verified_at: 2026-11-22` після sign-off оператора; три planned лишаються `pending`):
 
    ```powershell
    py -3 tools/catalog_worker.py --validate --dry-run --records tools/records

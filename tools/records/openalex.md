@@ -23,11 +23,11 @@ rate_limit_rps: 3
 probe_url: "https://api.openalex.org/works?search=test&per-page=1"
 license: "CC0 1.0 (дані OpenAlex); PDF-и — оригінальний copyright"
 license_source: "https://openalex.org/about"
-tos_verified_at: ""
+tos_verified_at: 2026-11-22
 robots_allowed: allowed
 attribution_required: false
 attribution_text: "атрибуція бажана, але не обов'язкова; рекомендоване цитування: Priem, Piwowar & Orr (2022), arXiv:2205.01833"
-legal_review: pending
+legal_review: verified
 check_interval_days: 1
 last_checked: 2026-11-22
 last_error: ""

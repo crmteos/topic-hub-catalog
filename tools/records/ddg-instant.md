@@ -23,11 +23,11 @@ rate_limit_rps: 1
 probe_url: "https://api.duckduckgo.com/?q=test&format=json&no_html=1&skip_disambig=1"
 license: "DDG Terms of Service; окрему ліцензію даних Instant Answer API не опубліковано"
 license_source: "https://duckduckgo.com/terms"
-tos_verified_at: ""
+tos_verified_at: 2026-11-22
 robots_allowed: restricted
 attribution_required: false
 attribution_text: ""
-legal_review: pending
+legal_review: verified
 check_interval_days: 1
 last_checked: 2026-11-22
 last_error: ""

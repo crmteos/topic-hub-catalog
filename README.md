@@ -64,7 +64,11 @@ No API keys, OAuth tokens, passwords or paid services are used. `TOPIC_WEB_SEARC
 
 ## Legal status
 
-Research was completed on **2026-11-22** from official provider pages. It is **not** a legal opinion and **not** human-confirmed: `legal_review` remains `pending` and `tos_verified_at` is empty in all six records. Do not treat the research as verified. See [`docs/legal.md`](docs/legal.md) for the facts, open gaps and the mode clarification.
+Research was completed on **2026-11-22** from official provider pages and **accepted by the operator on 2026-11-22** after review of the three documented gaps: the repository URL in the User-Agent is treated as the reachable contact, no official DDG attribution requirement was found, and the HN/Algolia data license remains unpublished. The six active records now carry `legal_review: verified` and `tos_verified_at: 2026-11-22`; the three planned records stay `pending` until activated. This is an operator decision, not a legal opinion. See [`docs/legal.md`](docs/legal.md) for the facts and the mode clarification.
+
+## License
+
+The repository code, docs and site are licensed under the [MIT License](LICENSE). Third-party data keeps its own licenses (see the table above); required attribution is emitted into wide notes from the records. This repository license does not relicense Wikipedia, arXiv, OpenAlex, DDG or HN data.
 
 ## Attribution
 
