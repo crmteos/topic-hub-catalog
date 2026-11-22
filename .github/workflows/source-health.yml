@@ -1,0 +1,26 @@
+name: Source health
+
+# Weekly, not daily: these requests come from shared GitHub IPs.
+# The worker sleeps 1/rate_limit_rps between probes and sends a descriptive User-Agent.
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check pyyaml
+      - name: Probe active sources
+        run: >-
+          python tools/catalog_worker.py --check --dry-run --records tools/records
+          --only arxiv,ddg-instant,hacker-news,openalex,wikipedia-en,wikipedia-uk

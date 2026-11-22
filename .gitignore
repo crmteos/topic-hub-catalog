@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.obsidian/
+*.log
+.env
+.env.*
+backups/
+*.bak
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+name: Catalog validation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check pyyaml
+      - name: Validate record schema
+        run: python tools/catalog_worker.py --validate --dry-run --records tools/records
+      - name: Regenerate adapters
+        run: python tools/catalog_worker.py --generate /tmp/sources_generated.py --records tools/records
+      - name: Compare generated adapters with committed file
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          committed = Path("tools/sources_generated.py").read_text(encoding="utf-8")
+          generated = Path("/tmp/sources_generated.py").read_text(encoding="utf-8")
+          if committed != generated:
+              raise SystemExit(
+                  "sources_generated.py is stale. "
+                  "Run: py -3 tools/catalog_worker.py --generate tools/sources_generated.py --records tools/records"
+              )
+          print("sources_generated.py is in sync")
+          PY

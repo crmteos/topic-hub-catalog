@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>topic-hub-catalog — keyless library catalog</title>
+  <style>
+    body { max-width: 52rem; margin: 2rem auto; padding: 0 1rem; font: 16px/1.6 system-ui, sans-serif; color: #222; }
+    h1 { font-size: 1.8rem; }
+    code { background: #f2f2f2; padding: .1rem .3rem; border-radius: 3px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: .4rem .6rem; text-align: left; font-size: .9rem; }
+    th { background: #f6f6f6; }
+    .note { border-left: 4px solid #888; padding-left: 1rem; color: #444; }
+  </style>
+</head>
+<body>
+  <h1>topic-hub-catalog</h1>
+  <p>A public, curated subset of a personal Obsidian library catalog: a keyless web-search MCP server, its source adapters, a deterministic catalog worker, and dated legal research.</p>
+
+  <h2>Contact</h2>
+  <p>Use <a href="https://github.com/crmteos/topic-hub-catalog/issues">GitHub Issues</a>. No email is published and none is sent in HTTP headers.</p>
+  <pre><code>topic-hub-web-search/1.0 (https://github.com/crmteos/topic-hub-catalog)
+topic-hub-catalog-worker/1.0 (https://github.com/crmteos/topic-hub-catalog)</code></pre>
+
+  <h2>Access mode</h2>
+  <p class="note"><code>robots.txt</code> governs crawlers; API Terms of Use govern API clients. This project is an <strong>API client</strong>: low-frequency targeted GET requests to documented endpoints, with a descriptive User-Agent. It does not crawl pages.</p>
+
+  <h2>Active sources</h2>
+  <table>
+    <thead><tr><th>Source</th><th>License</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>arxiv</td><td>metadata CC0 1.0; e-prints author copyright</td><td>research, not human-confirmed</td></tr>
+      <tr><td>ddg-instant</td><td>DDG Terms; no separate data license published</td><td>research, not human-confirmed</td></tr>
+      <tr><td>hacker-news</td><td>MIT covers code, not data</td><td>research, not human-confirmed</td></tr>
+      <tr><td>openalex</td><td>CC0 1.0 data</td><td>research, not human-confirmed</td></tr>
+      <tr><td>wikipedia-en</td><td>CC BY-SA 4.0 / GFDL</td><td>research, not human-confirmed</td></tr>
+      <tr><td>wikipedia-uk</td><td>CC BY-SA 4.0 / GFDL</td><td>research, not human-confirmed</td></tr>
+    </tbody>
+  </table>
+  <p>Planned, not active: internet-archive, open-library, wikidata.</p>
+
+  <h2>Attribution</h2>
+  <ul>
+    <li>arXiv: “Thank you to arXiv for use of its open access interoperability.”</li>
+    <li>OpenAlex: attribution appreciated, not required; Priem, Piwowar &amp; Orr (2022), arXiv:2205.01833.</li>
+    <li>Wikipedia: link or URL to the source page, a stable copy, or a list of authors.</li>
+  </ul>
+
+  <h2>Repository</h2>
+  <p><a href="https://github.com/crmteos/topic-hub-catalog">Source code, records and instructions</a> · research date 2026-11-22 · legal review pending human confirmation.</p>
+</body>
+</html>
