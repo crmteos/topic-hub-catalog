@@ -15,5 +15,10 @@ SOURCES = (
     ("wikipedia-uk", make_source({"endpoint": "https://uk.wikipedia.org/w/api.php", "format": "JSON", "link_base": "https://uk.wikipedia.org/wiki/", "name": "wikipedia-uk", "parser": "mediawiki-search", "timeout_s": 12})),
 )
 
+ATTRIBUTION = (
+    ("wikipedia-en", "гіперпосилання/URL до сторінки, стабільна копія або список авторів"),
+    ("wikipedia-uk", "гіперпосилання/URL до сторінки, стабільна копія або список авторів"),
+)
+
 PLANNED = ('internet-archive', 'open-library', 'wikidata')
 SKIPPED = ()

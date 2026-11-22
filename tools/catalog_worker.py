@@ -57,6 +57,10 @@ REQUIRED = (
     "check_interval_days",
 )
 LEGAL = ("license", "license_source", "tos_verified_at", "robots_allowed")
+# Тільки явна вимога атрибуції потрапляє у wide note. Рекомендоване
+# підтвердження (attribution_text без attribution_required: true) лишається
+# у записах і не видається за обов'язкове.
+ATTRIBUTION_REQUIRED = True
 AUTH_PROFILES = {"keyless", "polite-mailto", "api-key-env"}
 PARSERS = {
     "mediawiki-search",
@@ -150,6 +154,24 @@ def validate(records):
                     if data.get(field) in (None, ""):
                         errors.append(f"{name}: legal_review=verified, але порожнє поле {field}")
     return errors, warnings
+
+
+def attribution_map(records):
+    """Атрибуція для wide note: лише active-джерела з явного Attribution Required.
+
+    Не змінює юридичні поля записів — лише експортує вже наявні research-факти.
+    """
+    result = []
+    for path, data in records:
+        if data.get("record_type") != "web-source" or data.get("status") != "active":
+            continue
+        if data.get("attribution_required") is not ATTRIBUTION_REQUIRED:
+            continue
+        text = str(data.get("attribution_text") or "").strip()
+        if not text:
+            continue
+        result.append((str(data.get("name") or path.stem), text))
+    return tuple(sorted(result))
 
 
 def parse_shape(body, response_format):
@@ -308,6 +330,7 @@ def generate_sources(out_path, records):
             spec["link_base"] = str(data.get("endpoint") or "").replace("/w/api.php", "/wiki/")
         active.append((name, json.dumps(spec, ensure_ascii=True, sort_keys=True)))
 
+    attribution = attribution_map(records)
     lines = [
         '"""АВТОМАТИЧНО ЗГЕНЕРОВАНО catalog_worker.py --generate.',
         "",
@@ -321,8 +344,17 @@ def generate_sources(out_path, records):
     ]
     for name, spec in active:
         lines.append(f'    ("{name}", make_source({spec})),')
+    lines += [")", ""]
+    if attribution:
+        lines.append("ATTRIBUTION = (")
+        lines += [
+            f"    ({json.dumps(name, ensure_ascii=False)}, {json.dumps(text, ensure_ascii=False)}),"
+            for name, text in attribution
+        ]
+        lines.append(")")
+    else:
+        lines.append("ATTRIBUTION = ()")
     lines += [
-        ")",
         "",
         f"PLANNED = ({', '.join(repr(name) for name in planned)})" if planned else "PLANNED = ()",
         f"SKIPPED = ({', '.join(repr(name) for name in skipped)})" if skipped else "SKIPPED = ()",
