@@ -48,7 +48,7 @@
 
 ## Кроки публікації
 
-> Стан на 2026-11-22: локальний Git-репозитарій уже ініціалізовано, перший коміт зроблено. **Не повторюй `git init` і не створюй новий початковий коміт.** У середовищі підготовки `gh` відсутній, `git` доступний.
+> Стан на 2026-11-22: **репо вже опубліковано**. `origin` налаштовано, гілка `main` відстежує `origin/main`, Pages увімкнено, CI успішний. **Не повторюй `git init` і не створюй новий початковий коміт.** Для подальших оновлень достатньо `git add`, `git commit`, `git push`. У середовищі `gh` відсутній, `git` доступний; нижче — історична послідовність першого пушу.
 
 Спочатку створи порожнє **публічне** репо `crmteos/topic-hub-catalog` на GitHub **без** README, LICENSE і `.gitignore` — інакше перший push відхилиться через несумісні історії. Потім:
 
@@ -57,9 +57,8 @@ $ErrorActionPreference = 'Stop'
 Set-Location '<шлях до цієї директорії>'
 git status --short          # має бути порожньо
 git log -1 --oneline        # перший коміт уже є
-git remote -v               # origin поки не налаштовано
-git remote add origin https://github.com/crmteos/topic-hub-catalog.git
-git push -u origin main
+git remote -v               # origin уже налаштовано
+git push -u origin main     # для першого пушу; далі просто git push
 ```
 
 Автентифікацію виконує користувач через власні git-облікові дані — агент їх не зберігає й не запитує. Якщо `gh` доступний, після створення репо ним можна скористатися для перевірки: `gh auth status`, `gh repo view crmteos/topic-hub-catalog --json name,visibility,url`.
