@@ -84,5 +84,5 @@ The repository code, docs and site are licensed under the [MIT License](LICENSE)
 
 ## Ukrainian summary
 
-Це публічна підмножина каталогу бібліотек, не сам vault. Контакт — Issues, без емейлу. Юридичні поля лишаються `pending` до підтвердження людиною.
+Це публічна підмножина каталогу бібліотек, не сам vault. Контакт — Issues, без емейлу. Шість active-записів мають `legal_review: verified` і `tos_verified_at: 2026-11-22` після sign-off оператора; три planned лишаються `pending` до активації.
 
