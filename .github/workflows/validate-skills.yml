@@ -1,0 +1,39 @@
+name: Validate Agent Skills
+
+# Vault is the source of truth; skills/ in this repo is a mirror.
+# The official skills-ref validator is installed from a pinned source checkout,
+# deliberately NOT from PyPI (see agentskills/agentskills issue #114).
+on:
+  push:
+    paths:
+      - 'skills/**'
+      - '.github/workflows/validate-skills.yml'
+  pull_request:
+    paths:
+      - 'skills/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install official skills-ref from pinned source
+        run: |
+          git clone --depth 1 https://github.com/agentskills/agentskills.git "$RUNNER_TEMP/agentskills"
+          git -C "$RUNNER_TEMP/agentskills" checkout --detach 83021e2be457a9b6679148719c1f6074f0ad975e
+          python -m pip install --disable-pip-version-check "$RUNNER_TEMP/agentskills/skills-ref"
+      - name: Validate every mirrored skill
+        run: |
+          status=0
+          for d in skills/*/; do
+            echo "=== $d ==="
+            skills-ref validate "$d" || status=1
+          done
+          exit $status
