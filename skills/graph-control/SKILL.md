@@ -31,6 +31,8 @@ A new parameter from the Knowledge Base becomes a **new record** with `graph_axi
 
 `graph-curator` is a **proposed role** in `.agents/agents/graph-curator/agent.md` (`status: proposed`, `evolves_from: graph-slice-publisher` — an evolution of the slice publisher, not a replacement). It edits graph-control records, checks the `graph_` prefix rule and calls the host-agnostic hub tool `regenerate_graph_presets`. The host is chosen at invocation — `agy`, Copilot, a worker or another runtime; the role is not tied to one CLI. The user never types `py -3 ...`. Runtimes that support project rules load `.agents/rules/graph-fields.md` automatically.
 
+Host independence was verified 2026-11-23: a plain Python MCP client over stdio (neither `agy` nor Copilot) called `regenerate_graph_presets` and got `exit_code 0`, `schema problems: 0`, unchanged filters. Reproduce with `py -3 "Система/Архітектура системи/Скрипти/verify_graph_host_independence.py"`.
+
 ## Workflow
 
 1. Add or edit a `type: graph-control` note in any contour's `Графові зрізи/Записи/`.
