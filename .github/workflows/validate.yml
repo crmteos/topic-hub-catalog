@@ -22,6 +22,8 @@ jobs:
         run: python -m unittest discover -s tools -p 'test_*.py' -v
       - name: Validate record schema
         run: python tools/catalog_worker.py --validate --dry-run --records tools/records
+      - name: Validate portable project-memory contract
+        run: python tools/check_memory_contract.py
       - name: Regenerate adapters
         run: python tools/catalog_worker.py --generate /tmp/sources_generated.py --records tools/records
       - name: Compare generated adapters with committed file

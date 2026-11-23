@@ -1,0 +1,21 @@
+{
+  "contract_version": "1.0.0",
+  "memory_version": "1.0.0",
+  "memory_phase": "Step 2",
+  "decision_ids": [
+    "ACP-0001",
+    "ACP-0002"
+  ],
+  "skills_expected": 9,
+  "records_expected": 9,
+  "expected_drift_codes": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7"
+  ],
+  "note": "Portable interface only. The vault project memory is the source of truth. No vault paths, source paths, secrets or record contents are mirrored here."
+}

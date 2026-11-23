@@ -10,7 +10,7 @@
 
 `skills/` — це **дзеркало** навичок із vault (`Система/copilot/skills/`). Джерело правди — vault; тут скіли лише зберігаються й перевіряються в CI. Не редагуй скіли напряму в репо — спершу зміни у vault, потім скопіюй сюди.
 
-Валідація: workflow `.github/workflows/validate-skills.yml` запускає офіційний `skills-ref` з **pinned commit** `83021e2` (не PyPI-пакет) для кожної папки в `skills/`. Перед пушовим контролем перевір, що всі 8 скілів валідні.
+Валідація: workflow `.github/workflows/validate-skills.yml` запускає офіційний `skills-ref` з **pinned commit** `83021e2` (не PyPI-пакет) для кожної папки в `skills/`. Перед пушовим контролем перевір, що всі 9 скілів валідні.
 
 ## Межа роботи — прочитати перед будь-якою дією
 
@@ -24,7 +24,7 @@
 
 ## Передпушовий контроль (усі пункти обов'язкові)
 
-1. Перевір, що присутні 9 записів: `tools/records/*.md` (6 active + 3 planned), і 8 скілів у `skills/` — усі ідентичні до `Система/copilot/skills/` у vault (джерело правди).
+1. Перевір, що присутні 9 записів: `tools/records/*.md` (6 active + 3 planned), і 9 скілів у `skills/` — усі ідентичні до `Система/copilot/skills/` у vault (джерело правди). Також запусти `py -3 tools/check_memory_contract.py` (exit 0).
 2. Перевір User-Agent у **двох** файлах — він має містити URL репо, а не опис:
    - `tools/search_helpers.py` → `topic-hub-web-search/1.0 (https://github.com/crmteos/topic-hub-catalog)`
    - `tools/catalog_worker.py` → `topic-hub-catalog-worker/1.0 (https://github.com/crmteos/topic-hub-catalog)`
